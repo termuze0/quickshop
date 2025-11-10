@@ -5,6 +5,7 @@ import ProductCard from "./ProductCard";
 import { Input } from "@/components/ui/input";
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import { Product } from "@/types";
+import Link from "next/link";
 export default function ProductList() {
   const dispatch = useAppDispatch();
   const { items, search, loading, hasMore, skip } = useAppSelector(
@@ -36,7 +37,7 @@ export default function ProductList() {
   const filteredItems: Product[] = items.filter((product: Product) =>
     product.title.toLowerCase().includes(search.toLowerCase())
   );
-
+const favorites = useAppSelector((state) => state.products.favorites);
   return (
     <div className="p-4">
       {/* Search Input */}
@@ -46,7 +47,11 @@ export default function ProductList() {
         onChange={(e) => dispatch(setSearchTerm(e.target.value))}
         className="mb-4 w-full max-w-md"
       />
-
+        <Link href="/favorite">
+  <button>
+    Favorites: {favorites.length}
+  </button>
+</Link>
       {/* Products Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filteredItems.map((product) => (
