@@ -41,9 +41,7 @@ const productSlice = createSlice({
     },
     setSearchTerm: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
-      state.items = [];
-      state.skip = 0;
-      state.hasMore = true;
+      
     },
   },
   extraReducers: (builder) => {

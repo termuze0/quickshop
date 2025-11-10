@@ -2,9 +2,6 @@
 
 A simple eCommerce web application built with **Next.js**, **TypeScript**, **Tailwind CSS**, **Shadcn UI**, and **Redux Toolkit**.  
 
-This project fetches products from [DummyJSON](https://dummyjson.com/) and allows users to browse, search, and favorite products.
-
----
 
 ## Features
 
