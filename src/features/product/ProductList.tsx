@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsThunk, setSearchTerm } from "./ProductSlice";
 import ProductCard from "./ProductCard";
 import { Input } from "@/components/ui/input";
+import { useAppDispatch, useAppSelector } from "@/app/hooks";
 
 export default function ProductList() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { items, search, loading, hasMore, skip } = useSelector((state: any) => state.products);
 
   useEffect(() => {
