@@ -12,4 +12,7 @@ export const fetchProducts = async (limit = 10, skip = 0): Promise<Product[]> =>
   const res = await apiClient.get<ProductsResponse>(`/products?limit=${limit}&skip=${skip}`);
   return res.data.products;
 };
-
+export const getProductById = async (id: number) => {
+  const res = await apiClient.get(`/products/${id}`);
+  return res.data;
+};

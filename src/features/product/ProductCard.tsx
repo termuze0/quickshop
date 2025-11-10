@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleFavorite } from "./ProductSlice";
 import { Product } from "@/types";
 import { Button } from "@/components/ui/button";
-
+import Link from "next/link";
 interface ProductCardProps {
   product: Product;
 }
@@ -15,11 +15,13 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div className="border rounded-lg shadow-md p-4 flex flex-col">
-      <img
-        src={product.thumbnail}
-        alt={product.title}
-        className="w-full h-40 object-cover rounded"
-      />
+      <Link href={`/product/${product.id}`}>
+  <img
+    src={product.thumbnail}
+    alt={product.title}
+    className="w-full h-48 object-cover rounded-lg cursor-pointer"
+  />
+</Link>
       <h2 className="font-bold mt-2">{product.title}</h2>
       <p className="text-sm text-gray-600">{product.category}</p>
       <p className="text-green-600 font-semibold">${product.price}</p>
